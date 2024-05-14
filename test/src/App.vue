@@ -1,11 +1,20 @@
 <script setup>
 import NavBar from "@/components/include/Navbar.vue"
 import { RouterView } from 'vue-router'
+import { ref } from 'vue'
+const openLoginModal = ref(false)
 </script>
 
 <template>
-  <nav-bar/>
-  <RouterView />
+
+  <nav-bar />
+
+  <body class="index-page sidebar-collapse ">
+    <div class="page-header clear-filter d-flex justify-content-center" filter-color="orange" style="position:fixed; width: 100%;">
+      
+      <RouterView />
+    </div>
+  </body>
 </template>
 
 <style >

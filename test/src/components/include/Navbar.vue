@@ -25,7 +25,7 @@ const store = useLoginStore()
                 <router-link :to="{ name: 'main' }" class="nav-link">회원가입</router-link>
               </li>
               <li class="nav-item">
-                <router-link :to="{ name: 'main' }" class="nav-link">로그인</router-link>
+                <a @click="store.openModal()" :to="{ name: 'main' }" class="nav-link">로그인</a>
               </li>
             </div>
             <div class="navbar-nav" v-else>
@@ -39,7 +39,7 @@ const store = useLoginStore()
                 <router-link :to="{ name: 'main' }" class="nav-link">마이페이지</router-link>
               </li>
               <li class="nav-item">
-                <router-link :to="{ name: 'main' }" class="nav-link">로그아웃</router-link>
+                <router-link @click="store.logout()" :to="{ name: 'main' }" class="nav-link">로그아웃</router-link>
               </li>
             </div>
 

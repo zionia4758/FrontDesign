@@ -19,7 +19,8 @@ const router = createRouter({
       path: "/trip",
       name: 'trip',
       component: ()=>import("@/views/TripView.vue")
-    }
+    },
+  
 
   ]
 })

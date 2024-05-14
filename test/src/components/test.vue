@@ -5,7 +5,6 @@ const password = ref('')
 const email = ref('')
 
 const submit = () => {
-  console.log(id.value, password.value, email.value)
 }
 </script>
 
