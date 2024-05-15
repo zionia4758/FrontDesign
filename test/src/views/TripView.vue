@@ -3,9 +3,12 @@ import { ref, computed, watch } from "vue"
 import TripSearchBar from "@/components/trip/TripSearchBar.vue";
 import { KakaoMap, KakaoMapMarker } from 'vue3-kakao-maps';
 import TripInfo from "@/components/trip/TripInfo.vue"
+import TripPageNavigation from "@/components/trip/TripPageNavigation.vue"
 const args = {
   lat: 37.566826,
-  lng: 126.9786567
+  lng: 126.9786567,
+  width:400,
+  height:400,
 };
 const markers = ref([])
 const map = ref(kakao.maps.Map)
@@ -63,17 +66,24 @@ const numOfMarkers = computed(() => {
 </script>
 
 <template>
-  <TripSearchBar @searchTrip="(data) => searchEmit(data)" />
-  <div class="row justify-content-evenly">
-    <KakaoMap class="col-5" :level="9" :lat="args.lat" :lng="args.lng" :draggable="true"
-      @onLoadKakaoMap="onLoadKakaoMap">
-      <KakaoMapMarker v-for="marker in markers" :key="marker" :lat="marker.lat" :lng="marker.lng" />
-    </KakaoMap>
-    <div class="col-5 d-flex flex-column">
-      <div class="container"></div>
-      <trip-info @pageMove="(val) => changePage(val)" :contents="contents.data.slice(pageIdx * 5, pageIdx * 5 + 5)"
-        :numOfContents="numOfMarkers"></trip-info>
+  <div class="mt-5 ">
+    <TripSearchBar  />
+    <div class="row justify-content-evenly">
+      <KakaoMap class="col-5" :level="9" :lat="args.lat" :lng="args.lng" :width="args.width" :height="args.height"  :draggable="true"
+        @onLoadKakaoMap="onLoadKakaoMap">
+        <KakaoMapMarker v-for="marker in markers" :key="marker" :lat="marker.lat" :lng="marker.lng" />
+      </KakaoMap>
+      <div class="col-6 container">
+        <div class="text-center">123123213</div>
+        <div class="text-center">123123213</div>
+        <div class="text-center">123123213</div>
+        <div class="text-center">123123213</div>
+        <div class="text-center">123123213</div>
+        <TripPageNavigation ></TripPageNavigation>
+      </div>
+      
     </div>
+
   </div>
 </template>
 

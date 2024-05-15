@@ -1,19 +1,22 @@
-<script setup lang="ts">
-import {ref} from 'vue'
-import { useTripStore } from "@/stores/trip.js";
-import {availLocation} from "@/api/TripApi.js"
+<script>
+import { useTripStore } from "@/stores/trip";
+import {availLocation} from "@/api/TripApi"
 const store = useTripStore();
 
 const title = ref("")
 const sidos = ref([])
 const sidoCode = ref(0)
 const contentTypeId = ref(0)
-
-
-const tripSearch = store.tripSearch
-
-
-
+onMounted(() => {
+  availLocation(
+    (response)=> sidos.value=response.data,
+    ()=>console.log("시도 불러오기 실패")
+  )
+  
+  // axios.get("http://localhost:8080/api/v1/trip/sido").then((response) => {
+  //   sidos.value = response.data;
+  // });
+});
 </script>
 
 <template>
@@ -31,7 +34,7 @@ const tripSearch = store.tripSearch
 
         <select v-model="contentTypeId" id="search-content-id" class="form-select me-2">
           <option value="0" selected>관광지 유형</option>
-          <!-- <option v-for="content in contentTypeMap" :key="content.id" :value="content.id">{{ content.type }}</option> -->
+          <option v-for="content in contentTypeMap" :key="content.id" :value="content.id">{{ content.type }}</option>
         </select>
         <input v-model="title" id="search-keyword" class="form-control me-2" type="search" placeholder="검색어"
           aria-label="검색어" />
@@ -41,4 +44,4 @@ const tripSearch = store.tripSearch
   </header>
 </template>
 
-<style scoped></style>
+<style></style>

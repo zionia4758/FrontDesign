@@ -24,7 +24,7 @@ const submit = () => {
       <div ref="target" class="card card-signup" data-background-color="orange">
         <form class="form" @submit.prevent="submit">
           <div class="card-header text-center">
-            {{ id }}{{ password }}{{ email }}
+            {{ id }}{{ password }}
             <h3 class="card-title title-up">Sign Up</h3>
             <div class="social-line">
               <a href="#" class="btn btn-neutral btn-facebook btn-icon btn-round">
@@ -56,14 +56,7 @@ const submit = () => {
               </div>
               <input v-model="password" type="password" placeholder="Password" class="form-control" />
             </div>
-            <div class="input-group no-border">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <i class="now-ui-icons ui-1_email-85"></i>
-                </span>
-              </div>
-              <!-- <input v-model="email" type="text" class="form-control" placeholder="Email..."> -->
-            </div>
+            
             <!-- If you want to add a checkbox to this form, uncomment this code -->
             <!-- <div class="checkbox">
 								<input id="checkboxSignup" type="checkbox">

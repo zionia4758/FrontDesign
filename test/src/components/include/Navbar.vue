@@ -7,7 +7,7 @@ const store = useLoginStore()
 <template>
   <div>
     <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
-      <div class="container" style="background-color: black; background-color: rgba( 255, 255, 255, 0.5 )">
+      <div class="container"  >
         <div class="navbar-translate">
           <router-link :to="{name:'main'}" class="navbar-brand">
             Enjoy Trip{{ store.isLogin }}

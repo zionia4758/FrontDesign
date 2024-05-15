@@ -11,17 +11,12 @@ const loginStore = useLoginStore();
 <template>
 
 
+
     <index-page />
-    <div class="page-header-image main_img" data-parallax="true">
-    </div style="position:absolute;">
     <login-modal v-if="loginStore.loginModal"/>
   
     <body class="index-page sidebar-collapse">
   
-      <!-- <index-page @openLoginModal="()=>{openLoginModal=true; console.log(1)}"/>
-      
-      <login-modal v-if="openLoginModal"></login-modal> -->
-      <!-- <router-view/> -->
     </body>
 
 </template>
